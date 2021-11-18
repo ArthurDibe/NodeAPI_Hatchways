@@ -129,3 +129,9 @@ app.get("/api/posts", async (req, res)=>
     // response
     res.status(codeStatus).json(respObj)
 })
+
+
+// ROUTE 404 - route not found
+app.use((req, res) => {
+    res.status(404).json({error: "404 - Sorry can't find that route!"})
+})
