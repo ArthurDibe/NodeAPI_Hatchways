@@ -28,6 +28,9 @@ app.listen(HTTP_PORT,()=>{
     console.log("--------------------------------------------")
 })
 
+// CALL TESTING
+testAPI()
+
 // ROUTE 1
 app.get("/api/ping",(req, res)=>{
     console.log("[SERVER ROUTE CALLED]: /api/ping")
