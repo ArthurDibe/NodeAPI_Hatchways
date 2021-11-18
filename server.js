@@ -28,3 +28,9 @@ app.listen(HTTP_PORT,()=>{
     console.log("--------------------------------------------")
 })
 
+// ROUTE 1
+app.get("/api/ping",(req, res)=>{
+    console.log("[SERVER ROUTE CALLED]: /api/ping")
+    res.status(200).json({success: true})
+})
+
