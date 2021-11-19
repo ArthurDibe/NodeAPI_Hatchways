@@ -57,7 +57,7 @@ test("No Tags Parameter Provided - /api/posts?tags", async () => {
 });
 
 sortOptions.forEach((option) => {
-  test(`No Tags Parameter Provided + "sortBy" parameter - /api/posts?tags&sortBy=${option} `, async () => {
+  test(`No Tags Parameter Provided + sortBy\n[ROUTE]: /api/posts?tags&sortBy=${option} `, async () => {
     expect.assertions(1);
     const data = await serverFunctions.checkTags(
       `/api/posts?tags&sortBy=${option}`
@@ -67,7 +67,7 @@ sortOptions.forEach((option) => {
 });
 
 directOptions.forEach((option) => {
-  test(`No Tags Parameter Provided + "direction" parameter - /api/posts?tags&direction=${option} `, async () => {
+  test(`No Tags Parameter Provided + direction\n[ROUTE]: /api/posts?tags&direction=${option} `, async () => {
     expect.assertions(1);
     const data = await serverFunctions.checkTags(
       `/api/posts?tags&direction=${option}`
@@ -77,7 +77,7 @@ directOptions.forEach((option) => {
 });
 
 // TAGS PROVIDED THAT DOES NOT EXIST TESTS
-test(`Tags that does not exist Provided - /api/posts?tags=${tagsNotExist}`, async () => {
+test(`Tags that does not exist Provided\n[ROUTE]: /api/posts?tags=${tagsNotExist}`, async () => {
   expect.assertions(1);
   const data = await serverFunctions.checkTags(
     `/api/posts?tags=${tagsNotExist}`
@@ -86,7 +86,7 @@ test(`Tags that does not exist Provided - /api/posts?tags=${tagsNotExist}`, asyn
 });
 
 sortOptions.forEach((option) => {
-  test(`Tags that does not exist + sortBy - /api/posts?tags=${tagsNotExist}&sortBy=${option}`, async () => {
+  test(`Tags that does not exist + sortBy\n[ROUTE]: /api/posts?tags=${tagsNotExist}&sortBy=${option}`, async () => {
     expect.assertions(1);
     const data = await serverFunctions.checkTags(
       `/api/posts?tags=${tagsNotExist}&sortBy=${option}`
@@ -96,7 +96,7 @@ sortOptions.forEach((option) => {
 });
 
 directOptions.forEach((option) => {
-  test(`Tags that does not exist + direction - /api/posts?tags=${tagsNotExist}&direction=${option}`, async () => {
+  test(`Tags that does not exist + direction\n[ROUTE]: /api/posts?tags=${tagsNotExist}&direction=${option}`, async () => {
     expect.assertions(1);
     const data = await serverFunctions.checkTags(
       `/api/posts?tags=${tagsNotExist}&direction=${option}`
