@@ -46,20 +46,20 @@ test("404 page not found - /posts/api", async () => {
 // NO TAGS PROVIDED TESTS
 test("No Tags Parameter Provided - /api/posts", async () => {
   expect.assertions(1);
-  const data = await serverFunctions.noTagsParameter("/api/posts");
+  const data = await serverFunctions.checkTags("/api/posts");
   expect(data).toEqual("Tags parameter is required");
 });
 
 test("No Tags Parameter Provided - /api/posts?tags", async () => {
   expect.assertions(1);
-  const data = await serverFunctions.noTagsParameter("/api/posts?tags");
+  const data = await serverFunctions.checkTags("/api/posts?tags");
   expect(data).toEqual("Tags parameter is required");
 });
 
 sortOptions.forEach((option) => {
   test(`No Tags Parameter Provided + "sortBy" parameter - /api/posts?tags&sortBy=${option} `, async () => {
     expect.assertions(1);
-    const data = await serverFunctions.noTagsParameter(
+    const data = await serverFunctions.checkTags(
       `/api/posts?tags&sortBy=${option}`
     );
     expect(data).toEqual("Tags parameter is required");
@@ -69,11 +69,38 @@ sortOptions.forEach((option) => {
 directOptions.forEach((option) => {
   test(`No Tags Parameter Provided + "direction" parameter - /api/posts?tags&direction=${option} `, async () => {
     expect.assertions(1);
-    const data = await serverFunctions.noTagsParameter(
+    const data = await serverFunctions.checkTags(
       `/api/posts?tags&direction=${option}`
     );
     expect(data).toEqual("Tags parameter is required");
   });
 });
 
+// TAGS PROVIDED THAT DOES NOT EXIST TESTS
+test(`No Tags Parameter Provided - /api/posts?tags=${tagsNotExist}`, async () => {
+  expect.assertions(1);
+  const data = await serverFunctions.checkTags(
+    `/api/posts?tags=${tagsNotExist}`
+  );
+  expect(data.posts.length).toBe(0);
+});
 
+sortOptions.forEach((option) => {
+  test(`No Tags Parameter Provided + sortBy - /api/posts?tags=${tagsNotExist}&sortBy=${option}`, async () => {
+    expect.assertions(1);
+    const data = await serverFunctions.checkTags(
+      `/api/posts?tags=${tagsNotExist}&sortBy=${option}`
+    );
+    expect(data.posts.length).toBe(0);
+  });
+});
+
+directOptions.forEach((option) => {
+  test(`No Tags Parameter Provided + direction - /api/posts?tags=${tagsNotExist}&direction=${option}`, async () => {
+    expect.assertions(1);
+    const data = await serverFunctions.checkTags(
+      `/api/posts?tags=${tagsNotExist}&direction=${option}`
+    );
+    expect(data.posts.length).toBe(0);
+  });
+});
