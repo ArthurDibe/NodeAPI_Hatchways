@@ -65,6 +65,7 @@ order (if the value is "asc") or descending order (if the value is "desc")
 
 \- If **`tags`** parameter is not present:   
 <img src="https://user-images.githubusercontent.com/5942022/142512102-096b2476-7322-45ff-9b8f-595e3f4eac67.jpg" width="330">  
+<br>
 
 \- If a **`sortBy`** or **`direction`** are invalid values, specify an error like below:    
 <img src="https://user-images.githubusercontent.com/5942022/142512361-e583c1e8-931c-4052-8c1e-19654c14600e.jpg" width="330">   
