@@ -77,7 +77,7 @@ directOptions.forEach((option) => {
 });
 
 // TAGS PROVIDED THAT DOES NOT EXIST TESTS
-test(`No Tags Parameter Provided - /api/posts?tags=${tagsNotExist}`, async () => {
+test(`Tags that does not exist Provided - /api/posts?tags=${tagsNotExist}`, async () => {
   expect.assertions(1);
   const data = await serverFunctions.checkTags(
     `/api/posts?tags=${tagsNotExist}`
@@ -86,7 +86,7 @@ test(`No Tags Parameter Provided - /api/posts?tags=${tagsNotExist}`, async () =>
 });
 
 sortOptions.forEach((option) => {
-  test(`No Tags Parameter Provided + sortBy - /api/posts?tags=${tagsNotExist}&sortBy=${option}`, async () => {
+  test(`Tags that does not exist + sortBy - /api/posts?tags=${tagsNotExist}&sortBy=${option}`, async () => {
     expect.assertions(1);
     const data = await serverFunctions.checkTags(
       `/api/posts?tags=${tagsNotExist}&sortBy=${option}`
@@ -96,11 +96,38 @@ sortOptions.forEach((option) => {
 });
 
 directOptions.forEach((option) => {
-  test(`No Tags Parameter Provided + direction - /api/posts?tags=${tagsNotExist}&direction=${option}`, async () => {
+  test(`Tags that does not exist + direction - /api/posts?tags=${tagsNotExist}&direction=${option}`, async () => {
     expect.assertions(1);
     const data = await serverFunctions.checkTags(
       `/api/posts?tags=${tagsNotExist}&direction=${option}`
     );
     expect(data.posts.length).toBe(0);
+  });
+});
+
+// TAGS PROVIDED THAT EXIST TESTS
+test(`Tags that exists\n[ROUTE]: /api/posts?tags=${tagsExist}`, async () => {
+  expect.assertions(1);
+  const data = await serverFunctions.checkTags(`/api/posts?tags=${tagsExist}`);
+  expect(data.posts.length).not.toBe(0);
+});
+
+sortOptions.forEach((option) => {
+  test(`Tags that exists + sortBy + direction ASC\n[ROUTE]: /api/posts?tags=${tagsExist}&sortBy=${option}&direction=asc`, async () => {
+    expect.assertions(1);
+    const data = await serverFunctions.checkTags(
+      `/api/posts?tags=${tagsExist}&sortBy=${option}&direction=asc`
+    );
+    expect(data.posts.length).not.toBe(0);
+  });
+});
+
+sortOptions.forEach((option) => {
+  test(`Tags that exists + sortBy + direction DESC\n[ROUTE]: /api/posts?tags=${tagsExist}&sortBy=${option}&direction=desc`, async () => {
+    expect.assertions(1);
+    const data = await serverFunctions.checkTags(
+      `/api/posts?tags=${tagsExist}&sortBy=${option}&direction=desc`
+    );
+    expect(data.posts.length).not.toBe(0);
   });
 });
