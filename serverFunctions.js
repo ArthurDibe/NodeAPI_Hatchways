@@ -12,6 +12,11 @@ const serverFunctions = {
       .get(url + route)
       .then((resp) => resp.data)
       .catch((err) => "Request failed with status code 404"),
+  noTagsParameter: (route) =>
+    axios
+      .get(url + route)
+      .then((resp) => resp.data)
+      .catch((err) => "Tags parameter is required"),
 };
 
 module.exports = serverFunctions;
