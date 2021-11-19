@@ -117,7 +117,7 @@ app.get("/api/posts", async (req, res)=>
 
         // ------------- Remove Repeated Objects
         // responses.sort((postA,postB) => postA.id - postB.id)
-        var uniqueResponse = responses.reduce((first, second) => {
+        const uniqueResponse = responses.reduce((first, second) => {
             if(!first.some(obj => obj.id === second.id)) {
               first.push(second);
             }
