@@ -1,4 +1,4 @@
-# Dibe's Node API
+# Node API Hatchways
 This repository is about an API that fetches data from another API (Hatchways)    
 <br>
 
