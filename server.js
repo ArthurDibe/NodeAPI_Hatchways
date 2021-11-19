@@ -7,8 +7,9 @@
 //     1) npm install
 //     2) npm start
 //
-//   OBS: After starting the server, tests results outputs
-//        are saved in a file called "testResults.txt"
+//   OBS: Once you run the server, it will generate a file 
+//        called "output.txt" where you can check some outputs 
+//        examples when callling the routes
 //
 ////////////////////////////////////////////////////////////
 
