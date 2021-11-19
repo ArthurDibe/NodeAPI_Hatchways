@@ -1,5 +1,9 @@
 # Dibe's Node API
-This repository is about an API that fetches data from another API (Hatchways)    
+This repository is an API that fetches data from another API (Hatchways)    
+<br>
+You can use this repository's API through the following URL :
+https://dibe-api-hatchways.herokuapp.com/
+<br>
 <br>
 
 ## How to locally Run this project: 
@@ -15,7 +19,7 @@ This repository is about an API that fetches data from another API (Hatchways)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function call `generateOutputs()` in `server.js`  
 
 
-## How to Run local tests:    
+## How to locally Run Tests:    
 1) Open two terminals
 2) In one terminal start the server: **`npm start`** 
 3) In the other terminal run the test: **`npm test`**    
