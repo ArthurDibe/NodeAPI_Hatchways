@@ -2,7 +2,7 @@
 This repository is an API that fetches data from another API (Hatchways)    
 <br>
 You can use this repository's API through the following URL :
-https://dibe-api-hatchways.herokuapp.com/
+https://dibe-api-hatchways.herokuapp.com
 <br>
 <br>
 
