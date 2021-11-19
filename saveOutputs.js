@@ -4,10 +4,8 @@
 ///////////////////////////////////
 
 const fetch = require('node-fetch')
-const chalk = require('chalk') // for display testing in color
-const fs = require('fs'); // to save testing results in a file
+const fs = require('fs'); 
 
-const log = console.log // shorthand console.log
 
 // function called from within testAPI function
 const testRoute = async (testNumber, url)=> 
