@@ -37,7 +37,6 @@ generateOutputs()
 
 // ROUTE 1
 app.get("/api/ping", (req, res) => {
-  console.log("[SERVER CALLED]: /api/ping");
   res.status(200).json({ success: true });
 });
 
@@ -52,7 +51,6 @@ app.get("/api/posts", async (req, res) => {
   let respObj;
   let responseAPI;
 
-    console.log(`[SERVER CALLED]: /api/posts?tags=${tags}&sortBy=${sortBy}&direction=${direction}`);
   if (!tags) {
     respObj = { error: "Tags parameter is required" };
   } else if (!sortOptions.find((option) => option == sortBy)) {
@@ -122,6 +120,5 @@ app.get("/api/posts", async (req, res) => {
 
 // ROUTE 404 - route not found
 app.use((req, res) => {
-  console.log('[SERVER CALLED]: 404')
   res.status(404).json({ error: "Request failed with status code 404" });
 });
