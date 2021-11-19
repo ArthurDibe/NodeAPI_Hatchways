@@ -8,7 +8,20 @@ This repository is about an API that fetches data from another API (Hatchways)
 3) Install the packages: **`npm install`**    
 4) Run the project: **`npm start`**    
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**IMPORTANT:**   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once you run the server, it will generate a file called `"output.txt"`    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where you can check some outputs examples when callling the routes.   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you do not want the file to be generated, please comment out the     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function call `generateOutputs()` in `server.js`  
+
+
+## How to Run local tests:    
+1) Open two terminals
+2) In one terminal start the server: **`npm start`** 
+3) In the other terminal run the test: **`npm test`**    
+<img src="https://user-images.githubusercontent.com/5942022/142567827-166a2e99-20fc-4866-8be3-539ef1b6803d.jpg" width="800"> 
 <br>  
+<br> 
 <hr>
 
 ## About the routes
