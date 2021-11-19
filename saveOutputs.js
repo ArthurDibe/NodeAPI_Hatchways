@@ -1,5 +1,5 @@
 ////////////////////////////////////
-//   File: testServer.js
+//   File: saveOutputs.js
 //   Developer: Arthur Dibe
 ///////////////////////////////////
 
@@ -8,8 +8,6 @@ const chalk = require('chalk') // for display testing in color
 const fs = require('fs'); // to save testing results in a file
 
 const log = console.log // shorthand console.log
-const green = chalk.bold.green // alians for chalk.green
-const magenta = chalk.bold.magenta // alians for chalk.magenta
 
 // function called from within testAPI function
 const testRoute = async (testNumber, url)=> 
@@ -23,26 +21,19 @@ const testRoute = async (testNumber, url)=>
     const result = `[TEST ${testNumber}] - ${url}\n
     RESPONSE: ${JSON.stringify(responseTEST, null, '\t')}\n\n`
 
-    // result on console window
-    log()
-    log(`[${green(`TEST ${testNumber}`)}] - ${magenta(url)}`)
-    log("RESPONSE: ",responseTEST)
-
     // Save result in the file
-    fs.appendFile('testResults.txt', result, (err)=> {
+    fs.appendFile('output.txt', result, (err)=> {
         if (err) throw err;
-        log('Saved!');
     });
 }
 
 
 // Function called from server.js
-module.exports = testAPI = async()=> 
+module.exports = generateOutputs = async()=> 
 {
     // RESET the file to start over
-    fs.writeFile('testResults.txt', "",(err)=> {
+    fs.writeFile('output.txt', "",(err)=> {
         if(err) throw err;
-        log("file reset")
     })
 
     // -----------> TEST 1 - 404 route not found 
