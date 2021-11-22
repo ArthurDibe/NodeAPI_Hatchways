@@ -1,7 +1,5 @@
-const sortElements = (responses, sortOptions, sortBy, direction) => 
-{
-  switch (sortOptions.findIndex((option) => option == sortBy)) 
-  {
+const sortElements = (responses, sortOptions, sortBy, direction) => {
+  switch (sortOptions.findIndex((option) => option == sortBy)) {
     case 0:
       if (direction == "asc")
         responses.sort((postA, postB) => postA.id - postB.id);
@@ -28,10 +26,22 @@ const sortElements = (responses, sortOptions, sortBy, direction) =>
 
       break;
   }
-  
-  return responses
+
+  return responses;
+};
+
+const removeRepeatedElements = (responses) => {
+  responses.reduce((first, second) => {
+    if (!first.some((obj) => obj.id === second.id)) {
+      first.push(second);
+    }
+    return first;
+  }, []);
+
+  return responses;
 };
 
 module.exports = {
   sortElements: sortElements,
+  removeRepeatedElements: removeRepeatedElements,
 };
